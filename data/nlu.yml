@@ -30,62 +30,100 @@ nlu:
     - bye bye
     - see you later
 
-- intent: affirm
+- intent: query_knowledge_base
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - What nice [song](object_type) is there?
+    - Is there any [singer](object_type) that sings well?
+    - List me some [songs](object_type)
+    - List me some [singers](object_type)
+    - List me some [male](gender) [singers](object_type)
+    - List me some [singer](object_type) of [male](gender)
+    - List me some [female](gender) [singers](object_type)
+    - List me some [singers](object_type) of [female](gender)
+    - List me some [male](gender) [singers](object_type)
+    - List me some [female](gender) [singers](object_type)
+    - Give me [male](gender) [singers](object_type)
+    - Give me [female](gender) [singers](object_type)
+    - List me some [songs](object_type) of [Sting](singer)
+    - List me [songs](object_type) of [Bob Dylan](singer)
+    - List me [songs](object_type) sung by [Bob Dylan](singer)
+    - List [songs](object_type) of [Lady Gaga](singer)
+    - List me [songs](object_type) of [Lady Gaga](singer)
+    - [Michael Jackson] What does (singer) have [song] (object_type)
+    - [Michael Jackson](singer) What is [song](object_type)
+    - [That song] (mention) belongs to what [album](attribute)
+    - [Who] (attribute) sang [that song just now](mention)
+    - Who is the [singer](attribute) of [the previous song](mention)
+    - What [genre](attribute) does [that song](mention) belong to?
+    - What is [style](attribute) of [last](mention)?
+    - What [album](attribute) does [first](mention) belong to?
+    - [Album](attribute) of [First](mention)
+    - [The first](mention) is [who](attribute) sang?
+    - [The last one](mention) is [which](attribute) sang?
+    - [Which singer](attribute) sang [Like a Rolling Stone](song)?
+    - What [album](attribute) does [Billie Jean](song) belong to?
+    - [Album](attribute) of [Billie Jean](song)?
+    - [The Shape of My Heart](song) belongs to what [album](attribute)?
+    - [Poker Face](song) is in what [album](attribute)?
+    - [Birthday](attribute) of [First](mention)
+    - [Birthday](attribute) of [Lady Gaga](singer)
 
-- intent: deny
+- intent: play_song
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - Play this song
 
-- intent: mood_great
+- intent: play_album
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - Play this album
 
-- intent: mood_unhappy
+- synonym: "1"
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - First
+    - first
+    - First song
 
-- intent: bot_challenge
+- synonym: "2"
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - the second
+    - Second song
+
+- synonym: '3'
+  examples: |
+    - The third
+    - The third song
+
+- synonym: LAST
+  examples: |
+    - the last one
+    - The last one
+    - Last
+
+- synonym: birthday
+  examples: |
+    - Birthday
+
+- synonym: singer
+  examples: |
+    - Singer
+    - Who
+    - Which
+    - Which singer
+
+- synonym: album
+  examples: |
+    - Album
+
+- synonym: song
+  examples: |
+    - songs
+
+- synonym: '4'
+  examples: |
+    - the fourth
+    - Fourth song
+
+- synonym: style
+  examples: |
+    - Style
+    - Types of
+    - Genre

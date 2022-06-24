@@ -3,31 +3,98 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - query_knowledge_base:
+      use_entities: [ ]
+  - play_song
+  - play_album
+
+entities:
+  - object_type
+  - mention
+  - attribute
+  - song
+  - singer
+  - gender
+
+slots:
+  knowledge_base_last_object:
+    type: any
+    mappings:
+      - type: custom
+
+  knowledge_base_last_object_type:
+    type: any
+    mappings:
+      - type: custom
+
+  knowledge_base_listed_objects:
+    type: any
+    mappings:
+      - type: custom
+
+  knowledge_base_objects:
+    type: any
+    mappings:
+      - type: custom
+
+  object_type:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: object_type
+
+  mention:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: mention
+
+  attribute:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: attribute
+
+  song:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: song
+
+  singer:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: singer
+
+  gender:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: gender
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
 
   utter_goodbye:
   - text: "Bye"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_default:
+  - text: "The system does not understand what you are saying."
+
+  utter_ask_rephrase:
+  - text: "Sorry that the system did not understand what you said, please rephrase it again."
+
+actions:
+  - action_response_query
+  - utter_goodbye
+  - utter_greet
+  - utter_default
+  - utter_ask_rephrase
 
 session_config:
   session_expiration_time: 60
